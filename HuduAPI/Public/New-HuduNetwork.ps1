@@ -23,6 +23,12 @@ Optional location ID to associate with the network.
 .PARAMETER Description
 Free-form description of the network.
 
+.PARAMETER RoleListItemID
+Optional Id of the role list item to associate.
+
+.PARAMETER StatusListItemID
+Optional Id of the status list item to associate.
+
 .PARAMETER NetworkType
 Numeric network type as used by Hudu (module/API enum value).
 
@@ -45,6 +51,8 @@ New-HuduNetwork -Name "Server VLAN 30" -Address "10.20.30.0/24" -CompanyId 42 -L
         [int]$CompanyId,
         [int]$LocationId,
         [string]$Description,
+        [int]$RoleListItemID,
+        [int]$StatusListItemID,
         [int]$NetworkType,
         [int]$VlanId
     )
@@ -61,6 +69,12 @@ New-HuduNetwork -Name "Server VLAN 30" -Address "10.20.30.0/24" -CompanyId 42 -L
     }
     if ($Description){
         $network["description"]=$description
+    }
+    if ($RoleListItemID) {
+        $vlan['role_list_item_id']=$RoleListItemID
+    }
+    if ($StatusListItemID) {
+        $vlan['status_list_item_id']=$StatusListItemID
     }
     if ($networkType){
         $network["network_type"]=$networkType
