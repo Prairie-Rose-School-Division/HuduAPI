@@ -71,10 +71,10 @@ New-HuduNetwork -Name "Server VLAN 30" -Address "10.20.30.0/24" -CompanyId 42 -L
         $network["description"]=$description
     }
     if ($RoleListItemID) {
-        $vlan['role_list_item_id']=$RoleListItemID
+        $network['role_list_item_id']=$RoleListItemID
     }
     if ($StatusListItemID) {
-        $vlan['status_list_item_id']=$StatusListItemID
+        $network['status_list_item_id']=$StatusListItemID
     }
     if ($networkType){
         $network["network_type"]=$networkType
