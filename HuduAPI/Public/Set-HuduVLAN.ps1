@@ -26,7 +26,7 @@ Update the role list item association.
 Update the status list item association.
 
 .PARAMETER VLANId
-Update the VLAN Id (between 4 and 4094).
+Update the VLAN Id (between 1 and 4094).
 
 .PARAMETER VLANZoneId
 Associate with a VLAN Zone.
@@ -45,7 +45,7 @@ Set-HuduVLAN -Id 7 -Description "Changed purpose" -VLANId 250
         [string]$Description,
         [int]$RoleListItemID,
         [int]$StatusListItemID,
-        [ValidateRange(4,4094)][int]$VLANId,
+        [ValidateRange(1,4094)][int]$VLANId,
         [int]$VLANZoneId,
         [ValidateSet("true","false")][string]$Archived
     )
