@@ -14,7 +14,7 @@ The name of the VLAN.
 The company identifier to associate with this VLAN.
 
 .PARAMETER VLANId
-The numeric VLAN Id (between 4 and 4094).
+The numeric VLAN Id (between 1 and 4094).
 
 .PARAMETER Description
 Optional description text.
@@ -38,7 +38,7 @@ New-HuduVLAN -Name "VLAN-200" -CompanyId 1 -VLANId 200 -Description "Internal tr
     param (
         [Parameter(Mandatory)] [string]$Name,
         [Parameter(Mandatory)] [int]$CompanyId,
-        [Parameter(Mandatory)][ValidateRange(4,4094)][int]$VLANId,
+        [Parameter(Mandatory)][ValidateRange(1,4094)][int]$VLANId,
         [string]$Description,
         [int]$RoleListItemID,
         [int]$StatusListItemID,
