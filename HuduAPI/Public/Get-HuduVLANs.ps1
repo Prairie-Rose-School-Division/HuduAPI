@@ -11,7 +11,7 @@ name, archival status, or creation/update timestamps.
 Specific VLAN Id.
 
 .PARAMETER VLANId
-Filter by VLAN Id (must be between 4 and 4094).
+Filter by VLAN Id (must be between 1 and 4094).
 
 .PARAMETER VLANZoneID
 Filter by associated VLAN Zone Id.
@@ -46,7 +46,7 @@ Get-HuduVLANs -CompanyId 5 -Archived "false"
     [CmdletBinding()]
     param(
         [int]$Id,
-        [ValidateRange(4,4094)][int]$VLANId,
+        [ValidateRange(1,4094)][int]$VLANId,
         [int]$VLANZoneID,
         [int]$CompanyId,
         [string]$Slug,
