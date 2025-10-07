@@ -25,6 +25,12 @@ Location ID to associate with the network.
 .PARAMETER Description
 Free-form description of the network.
 
+.PARAMETER RoleListItemID
+Update the role list item association.
+
+.PARAMETER StatusListItemID
+Update the status list item association.
+
 .PARAMETER NetworkType
 Numeric network type as used by Hudu (module/API enum value).
 
@@ -47,6 +53,8 @@ Set-HuduNetwork -Id 123 -Address "10.20.30.0/24" -VlanId 30 -LocationId 456
         [int]$CompanyId,
         [int]$LocationId,
         [string]$Description,
+        [int]$RoleListItemID,
+        [int]$StatusListItemID,
         [int]$NetworkType,
         [int]$VlanId
     )
@@ -68,6 +76,12 @@ Set-HuduNetwork -Id 123 -Address "10.20.30.0/24" -VlanId 30 -LocationId 456
     if ($Description) {
         $hudunetwork.network | Add-Member -MemberType NoteProperty -Name description -Force -Value $Description
     }
+    if ($RoleListItemID) {
+        $hudunetwork.network | Add-Member -MemberType NoteProperty -Name role_list_item_id -Force -Value $RoleListItemID
+    }
+    if ($StatusListItemID) {
+        $hudunetwork.network | Add-Member -MemberType NoteProperty -Name status_list_item_id -Force -Value $StatusListItemID
+    }     
     if ($NetworkType) {
         $hudunetwork.network | Add-Member -MemberType NoteProperty -Name network_type -Force -Value $NetworkType
     }
